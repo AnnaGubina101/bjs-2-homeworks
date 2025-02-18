@@ -1,20 +1,23 @@
 "use strict"
 function solveEquation(a, b, c) {
   let arr = [];
-  let Discr = (Math.pow(b, 2) - (4 * a * c));
+  let discriminant = (Math.pow(b, 2) - (4 * a * c));
 
-  if(Discr < 0) {
+  if(discriminant < 0) {
     return arr;
   }
-   if (Discr == 0) {
+   if (discriminant == 0) {
     let x = (- b / 2 * a);
 
     arr.push(x);
-  } else if (Discr > 0) {
-    let x1 = ((- b + Math.sqrt(Discr)) / (2 * a));
-    let x2 = ((- b - Math.sqrt(Discr)) / (2 * a));
+    return arr;
+
+  } else if (discriminant > 0) {
+    let x1 = ((- b + Math.sqrt(discriminant)) / (2 * a));
+    let x2 = ((- b - Math.sqrt(discriminant)) / (2 * a));
 
     arr.push(x1, x2);
+    return arr;
   }
 
   console.log(arr);
