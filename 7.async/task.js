@@ -6,14 +6,12 @@ class AlarmClock {
     addClock(time, callback) {
         if (!time || !callback) {
                 throw new Error ('Отсутствуют обязательные аргументы');
-        } else {
-            let sameTime = (element) => element.time === this.alarmCollection.time;
-            if(this.alarmCollection.some(sameTime)) {
+        } else if(this.alarmCollection.some((element) => element.time === this.addClock.time)) {
             console.warn('Уже присутствует звонок на это же время');
-                }
             }
         this.alarmCollection.push({time:time, callback:callback, canCall:true});
-        }
+    }
+        
         
     removeClock(time) {
         this.alarmCollection = this.alarmCollection.filter((element) => element.time !== time);
